@@ -1,0 +1,54 @@
+{
+  "name": "@skalenetwork/skale.js",
+  "version": "0.42.11",
+  "description": "SKALE client tools",
+  "main": "dist/skale.min.js",
+  "private": true,
+  "scripts": {
+    "build-patch": "ENV=patch ./build",
+    "build-minor": "ENV=minor ./build",
+    "build-major": "ENV=major ./build",
+    "dev": "WEBPACK_ENV=dev webpack",
+    "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
+    "test": "mocha test --exit --timeout 50000",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "prepush": "npm run lint && npm test"
+  },
+  "dependencies": {
+    "ethereumjs-util": "^6.1.0",
+    "ethereumjs-wallet": "^0.6.3",
+    "protobufjs": "~6.8.4",
+    "web3": "1.0.0-beta.36",
+    "ws": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skalenetwork/skale.js.git"
+  },
+  "author": "SKALE Labs",
+  "contributors": [
+    "Alex Danko <alex.danko@skalelabs.com>",
+    "Dmitry Tkachuk <dmitry@skalelabs.com>"
+  ],
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/skalenetwork/skale.js/issues"
+  },
+  "homepage": "https://github.com/skalenetwork/skale.js#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "codecov": "^3.3.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.15.3",
+    "eslint-loader": "^2.1.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^6.0.2",
+    "semver": "^5.6.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^2.0.12"
+  }
+}
