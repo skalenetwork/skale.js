@@ -22,7 +22,11 @@
  * @date 2019
  */
 
-const AbstractMethodException = require('../exceptions/AbstractMethod');/** * Class representing a BaseListener. */
+const AbstractMethodException = require('../exceptions/AbstractMethod');
+
+/**
+ * Class representing a BaseListener.
+ */
 class BaseListener {
 
     /**
@@ -44,30 +48,11 @@ class BaseListener {
         console.log(err);
     }
 
-    /**
-     * Turn off event listener
-     *
-     * @function turnOff
-     */
     turnOff() {
         let self = this;
-        this.subscription.unsubscribe(function (result) {
-            if (result) {
+        this.subscription.unsubscribe(function (error, success) {
+            if (success) {
                 self.active = false;
-            }
-        });
-    }
-
-    /**
-     * Turn on event listener
-     *
-     * @function turnOn
-     */
-    turnOn() {
-        let self = this;
-        this.subscription.subscribe(function (result) {
-            if (result) {
-                self.active = true;
             }
         });
     }
@@ -75,7 +60,7 @@ class BaseListener {
     isActive() {
         return this.active;
     }
-
 }
 
 module.exports = BaseListener;
+
