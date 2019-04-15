@@ -6,6 +6,7 @@ const assert = require('chai').assert;
 const Rand = require('../src/common/Rand');
 const skale = require('../src/index');
 const Web3 = require('web3');
+const Helper = require('../src/common/Helper');
 
 // data from .env
 const ip = process.env.IP;
@@ -52,6 +53,7 @@ describe('check SchainData contract methods', function () {
 
         it('should get Schain ID by Schain name', async function () {
             //
+            await Helper.timeout(5000);
             schainId = await skale.contract('schains_data').sChainNameToId(sChainName);
             assert.isNotNull(schainId, 'is not null');
             assert.isString(schainId, 'isString');
@@ -59,6 +61,7 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should get Schain by Schain ID', async function () {
+            await Helper.timeout(5000);
             let schain = await skale.contract('schains_data').getSchain({id: schainId});
             console.log('schainName', schain.name);
             console.log('schainName', sChainName);
