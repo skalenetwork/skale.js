@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/skalenetwork/skale.js.svg?token=VyxyB39zs82QAe5RAZya&branch=develop)](https://travis-ci.com/skalenetwork/skale.js)
 [![codecov](https://codecov.io/gh/skalenetwork/skale.js/branch/develop/graph/badge.svg?token=fZeTTl2yaf)](https://codecov.io/gh/skalenetwork/skale.js)
+[![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
 
 
 
@@ -65,3 +66,9 @@ npm run test
 The version format for this repo is `{major}.{minor}.{patch}` for stable, and `{major}.{minor}.{patch}-{stage}.{devnum}` for unstable (stage can be `alpha` or `beta`).
 
 For more details see: https://semver.org/
+
+## License
+
+![GitHub](https://img.shields.io/github/license/skalenetwork/skale.js.svg)
+
+All contributions are made under the [GNU Lesser General Public License v3](https://www.gnu.org/licenses/lgpl-3.0.en.html). See [LICENSE](LICENSE).
