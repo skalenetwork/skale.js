@@ -74,7 +74,8 @@ Then:
 npm run test
 ```
 
-**If you do not want to save them to a file, you can run tests like this:
+**If you do not want to save them to a file, you can run tests like
+this:**
 ```bash
 env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
 ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
