@@ -80,8 +80,8 @@ ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
 
 #### Versioning
 
-The version scheme for this repo is {major}.{minor}.{patch}*[]: 
-For more details see: https://semver.org/
+The version scheme for this repo is {major}.{minor}.{patch}. For more
+details see: https://semver.org/
 
 #### Lint
 
