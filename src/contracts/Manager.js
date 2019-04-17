@@ -79,7 +79,7 @@ class Manager extends BaseContract {
         let tokenContract = this.w3.getContractByName('token');
         let web3TokenContract = tokenContract.web3contract;
         let promise = '';
-        // console.log('bytesData: ', bytesData);
+        console.log('bytesData: ', bytesData);
         // for invoke from script
         if (params.privateKey) {
             let encoded = web3TokenContract.methods.transfer(this.contractAddress, NODE_DEPOSIT, bytesData).encodeABI();
@@ -185,11 +185,11 @@ class Manager extends BaseContract {
         let pubIpHex = Helper.ipStringToBytes(pubIp);
         // let pubKeyHex = web3.utils.toHex(pubKey);
 
-        // console.log('ip', ipHex);
-        // console.log('port', portHex);
-        // console.log('nonce', nonceHex);
-        // console.log('name', nameHex);
-        // console.log('pubIp', pubIpHex);
+        console.log('ip', ipHex);
+        console.log('port', portHex);
+        console.log('nonce', nonceHex);
+        console.log('name', nameHex);
+        console.log('pubIp', pubIpHex);
 
         return Helper.addByteStrings([operationTypes.createNode, portHex, nonceHex, ipHex, pubIpHex, pubKey, nameHex ]);
     }
@@ -234,7 +234,7 @@ class Manager extends BaseContract {
 
         let promise = ''; // for invoke from script
         if (params.privateKey) {
-            // console.log('inside delete schain form test or script');
+            console.log('inside delete schain form test or script');
             let encoded = this.web3contract.methods.deleteSchain(params.name).encodeABI();
             let account = params.account;
             let tx = {
