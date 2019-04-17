@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/skalenetwork/skale.js.svg?token=VyxyB39zs82QAe5RAZya&branch=develop)](https://travis-ci.com/skalenetwork/skale.js)
 [![codecov](https://codecov.io/gh/skalenetwork/skale.js/branch/develop/graph/badge.svg?token=fZeTTl2yaf)](https://codecov.io/gh/skalenetwork/skale.js)
+[![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
 
 
 
@@ -72,20 +73,17 @@ Then:
 ```bash
 npm run test
 ```
-if you do not want to save them to a file, you can run tests like this:
+
+**If you do not want to save them to a file, you can run tests like this:
 ```bash
 env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
 ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
 ```
 
-#### Versioning
-
-The version scheme for this repo is {major}.{minor}.{patch}. For more
-details see: https://semver.org/
-
 #### Lint
 
 Conforming to linting rules is a prerequisite to commit to filestorage.js.
+
 ```bash
 npm run lint
 ```
@@ -101,10 +99,15 @@ npm run lint
 - Node.js v8
 - npm
 
-# License
 
-![GitHub](https://img.shields.io/github/license/skalenetwork/filestorage.js.svg)
+### Versioning
 
-All contributions are made under the [GNU Lesser General Public 
-License v3](https://www.gnu.org/licenses/lgpl-3.0.en.html). 
-See [LICENSE](LICENSE).
+The version format for this repo is `{major}.{minor}.{patch}` for stable, and `{major}.{minor}.{patch}-{stage}.{devnum}` for unstable (stage can be `alpha` or `beta`).
+
+For more details see: https://semver.org/
+
+## License
+
+![GitHub](https://img.shields.io/github/license/skalenetwork/skale.js.svg)
+
+All contributions are made under the [GNU Lesser General Public License v3](https://www.gnu.org/licenses/lgpl-3.0.en.html). See [LICENSE](LICENSE).
