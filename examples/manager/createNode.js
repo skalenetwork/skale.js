@@ -9,6 +9,7 @@ const port = process.env.PORT;
 const account = process.env.ETH_ACCOUNT;
 const privateKey = process.env.ETH_PRIVATE_KEY;
 async function test() {
+    console.log('skale', skale);
 
     let web3SocketProvider = new Web3.providers.WebsocketProvider(`ws://${ip}:${port}`);
     await skale.initBothProviders(ip, port, web3SocketProvider);

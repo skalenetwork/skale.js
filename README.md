@@ -7,58 +7,98 @@
 
 
 SKALE client tools.  
-You can use this library to develop browser and Node.js applications that use Skale.
+You can use this library to develop browser and Node.js 
+applications that use Skale.
 
 ## Installation
 
-#### NPM
+#### Node
 
 ```bash
-npm install @skalenetwork/skale-api
+npm install @skalenetwork/skale.js
 ```
 
-#### Yarn
+## Usage
+```js
+const skale = require('@skalenetwork/skale.js');
+
+console.log(skale);
+> {
+    init: ... ,
+    ...
+    w3: {...},
+    w3events: {...},
+    helper: {...},
+    rand: ... ,
+    Listener: ... 
+}
+```
+
+## Examples
+
+Examples can be found at the [examples](https://github.com/skalenetwork/skale.js/tree/develop/examples) folder
+
+## Documentation
+
+Documentation can be found at read the [docs]()
+
+### Build
 
 ```bash
-yarn add @skalenetwork/skale-api
+# build patch version
+npm run build-patch
+
+# build minor version
+npm run build-minor
+
+# build major version
+npm run build-major
 ```
 
-## API Documentation
-
-You can find documentation for the current version here:
-
-## Contribution
-
-#### Requirements
-- Node.js
-- npm
-
-#### Build
+#### Build publish
 
 ```bash
-bash build_and_publish.sh patch/minor/major
+npm publish
 ```
-
-##### Building for specific env
-
-```bash
-bash build_and_publish.sh prerelease local/aws/server/test
-```
-
-##### Bump version without rebuilding sources
-
-```bash
-node semver.js minor
-# or
-node semover.js prerelease aws
-```
-
 
 #### Testing (mocha)
 
+To run tests locally you need save environment variables to `.env` file:
+* `IP`: ip of test geth
+* `PORT`: port of test geth
+* `ETH_ACCOUNT`: test account address
+* `ETH_PRIVATE_KEY`: test account privatekey
+ 
+Then:
 ```bash
 npm run test
 ```
+
+**If you do not want to save them to a file, you can run tests like
+this:**
+```bash
+env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
+ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
+```
+
+#### Lint
+
+Conforming to linting rules is a prerequisite to commit to filestorage.js.
+
+```bash
+npm run lint
+```
+
+## Contributing
+
+**If you have any questions please ask our development community on 
+[Discord](https://discord.gg/vvUtWJB).**
+
+[![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
+
+#### Requirements
+- Node.js v8
+- npm
 
 
 ### Versioning
