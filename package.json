@@ -5,9 +5,9 @@
   "main": "dist/skale.min.js",
   "private": true,
   "scripts": {
-    "build-patch": "ENV=patch ./build",
-    "build-minor": "ENV=minor ./build",
-    "build-major": "ENV=major ./build",
+    "build-patch": "VER=patch ./build",
+    "build-minor": "VER=minor ./build",
+    "build-major": "VER=major ./build",
     "dev": "WEBPACK_ENV=dev webpack",
     "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
     "test": "mocha test --exit --timeout 50000",
