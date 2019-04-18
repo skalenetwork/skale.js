@@ -1,13 +1,13 @@
 {
   "name": "@skalenetwork/skale.js",
-  "version": "0.42.11",
+  "version": "0.43.0",
   "description": "SKALE client tools",
   "main": "dist/skale.min.js",
-  "private": true,
+  "private": false,
   "scripts": {
-    "build-patch": "VER=patch ./build",
-    "build-minor": "VER=minor ./build",
-    "build-major": "VER=major ./build",
+    "build-patch": "VER=patch ./build.sh",
+    "build-minor": "VER=minor ./build.sh",
+    "build-major": "VER=major ./build.sh",
     "dev": "WEBPACK_ENV=dev webpack",
     "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
     "test": "mocha test --exit --timeout 50000",
@@ -49,6 +49,6 @@
     "mocha": "^6.0.2",
     "semver": "^5.6.0",
     "webpack": "^4.19.1",
-    "webpack-cli": "^2.0.12"
+    "webpack-cli": "^3.1.1"
   }
 }
