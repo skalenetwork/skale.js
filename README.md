@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/skalenetwork/skale.js/branch/develop/graph/badge.svg?token=fZeTTl2yaf)](https://codecov.io/gh/skalenetwork/skale.js)
 [![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
 
-This is SKALE internal library which used SKALE manager.
+This is SKALE internal library which used SKALE manager
 
 ## Installation
 
