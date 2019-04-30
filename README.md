@@ -5,17 +5,13 @@
 [![codecov](https://codecov.io/gh/skalenetwork/skale.js/branch/develop/graph/badge.svg?token=fZeTTl2yaf)](https://codecov.io/gh/skalenetwork/skale.js)
 [![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
 
-
-
 This is SKALE internal library which used SKALE manager.
 
 ## Installation
-
-#### Requirements
+### Requirements
 - Node.js v8
 - npm
-
-#### Node
+### Node
 
 ```bash
 npm install @skalenetwork/skale.js
@@ -44,8 +40,6 @@ Examples can be found at the [examples](https://github.com/skalenetwork/skale.js
 ### Documentation
 
 Documentation can be found [here]()
-
-
 
 ### Testing (mocha)
 

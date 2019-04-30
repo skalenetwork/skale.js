@@ -10,11 +10,11 @@ To run examples you should do some changes (if it's needed) and then
 `node script_name_js`
  
 ## Common
-#### unlockAccount.js
+### unlockAccount.js
 unlock your account if you want your transactions to be signed by the
 node
 
-#### transferSkale.js
+### transferSkale.js
 you need change 
 
 `to: 'recipientAccount'` and 
@@ -23,64 +23,64 @@ you need change
 script.
 
 ## Logs
-#### GetPastEvents.js
+### GetPastEvents.js
 get events by name
 
 ## Manager
-#### checkNodeName.js
+### checkNodeName.js
 check the node name before node create (name should be available)
 
-#### createNode.js
+### createNode.js
 create node
 
-#### createSchain.js
+### createSchain.js
 create S-chain
 
 Attention!!! before S-chain create you should create at least 20 nodes
 
-#### deleteSchain.js
+### deleteSchain.js
 delete S-chain by `name`
 
 you need change `name` before run script
 
-#### getActiveNodes.js
+### getActiveNodes.js
 get all active nodes
 
-#### getSchains.js
+### getSchains.js
 get all S-chains for account
 
 ## Nodes
-#### getActiveNodeIps.js
+### getActiveNodeIps.js
 get IPs for all active nodes
 
-#### getNodeRaw.js
+### getNodeRaw.js
 get node info by `nodeID`
 
 you need change `nodeID` before run script
 
 ## Schains
-#### getNodeConfig.js
+### getNodeConfig.js
 get info of nodes which contain a S-chain by `schainName`
 
 you need change `schainName` before run script
 
-#### getPrice.js
+### getPrice.js
 get the price of S-chain
 
 you need change `indexOfType` before run script
 
-#### getTransferHistory.js
+### getTransferHistory.js
 get all transfer history for account (like: node create, S-chain create,
 transfer SKALE tokens)
 
-#### getSchainByName.js
+### getSchainByName.js
 get info of S-chain by `schainName`
 
 you need change `schainName` before run script
 
-#### getSchainListSize.js
+### getSchainListSize.js
 get number of S-chains for account
 
 ## Token
-#### getBalance.js
+### getBalance.js
 get balance of SKALE tokens for account
