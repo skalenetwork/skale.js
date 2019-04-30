@@ -17,12 +17,13 @@ This is SKALE internal library which used SKALE manager.
 
 ### Node
 
-```bash
+``` bash
 npm install @skalenetwork/skale.js
 ```
 
 ## Usage
-```js
+
+``` js
 const skale = require('@skalenetwork/skale.js');
 
 console.log(skale);
@@ -56,14 +57,14 @@ and save with yours environment variables:
  
 Then:
 
-```bash
+``` bash
 npm run test
 ```
 
 **If you do not want to save them to a file, you can run tests like
 this:**
 
-```bash
+``` bash
 env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
 ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
 ```
@@ -72,7 +73,7 @@ ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
 
 Conforming to linting rules is a prerequisite to commit to skale.js.
 
-```bash
+``` bash
 npm run lint
 ```
 
@@ -80,7 +81,7 @@ npm run lint
 
 ### Build
 
-```bash
+``` bash
 # build patch version
 npm run build-patch
 
@@ -93,7 +94,7 @@ npm run build-major
 
 #### Build publish
 
-```bash
+``` bash
 npm publish
 ```
 
