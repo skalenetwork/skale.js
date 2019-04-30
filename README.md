@@ -55,12 +55,14 @@ and save with yours environment variables:
 * `ETH_PRIVATE_KEY`: test account privatekey
  
 Then:
+
 ```bash
 npm run test
 ```
 
 **If you do not want to save them to a file, you can run tests like
 this:**
+
 ```bash
 env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
 ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
