@@ -11,9 +11,8 @@ This is SKALE internal library which used SKALE manager.
 
 ### Requirements
 
-- Node.js v8
-
-- npm
+ - Node.js v8
+ - npm
 
 ### Node
 
