@@ -15,7 +15,7 @@ async function test() {
 
     let params = {
     // name: Rand.randomString(7),
-        name: 'cvb1',
+        name: 'bnm',
         privateKey: privateKey,
         account: account
     };

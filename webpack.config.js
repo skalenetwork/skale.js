@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        'skale':'./src/index.js',
+        'skale': './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -15,7 +15,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                    loader: 'babel-loader'
                 }
             }
         ]

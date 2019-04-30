@@ -1,16 +1,19 @@
-# SKALE JS API library
+# Javascript API for SKALE manager
 
+[![npm version](https://badge.fury.io/js/%40skalenetwork%2Fskale.js.svg)](https://badge.fury.io/js/%40skalenetwork%2Fskale.js)
 [![Build Status](https://travis-ci.com/skalenetwork/skale.js.svg?token=VyxyB39zs82QAe5RAZya&branch=develop)](https://travis-ci.com/skalenetwork/skale.js)
 [![codecov](https://codecov.io/gh/skalenetwork/skale.js/branch/develop/graph/badge.svg?token=fZeTTl2yaf)](https://codecov.io/gh/skalenetwork/skale.js)
 [![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
 
 
 
-SKALE client tools.  
-You can use this library to develop browser and Node.js 
-applications that use Skale.
+This is SKALE internal library which used SKALE manager.
 
 ## Installation
+
+#### Requirements
+- Node.js v8
+- npm
 
 #### Node
 
@@ -38,9 +41,42 @@ console.log(skale);
 
 Examples can be found at the [examples](https://github.com/skalenetwork/skale.js/tree/develop/examples) folder
 
-## Documentation
+### Documentation
 
-Documentation can be found at read the [docs]()
+Documentation can be found [here]()
+
+
+
+### Testing (mocha)
+
+To run tests locally you need change the name `.env_example` to `.env`
+and save with yours environment variables:
+* `IP`: ip of test geth
+* `PORT`: port of test geth
+* `ETH_ACCOUNT`: test account address
+* `ETH_PRIVATE_KEY`: test account privatekey
+ 
+Then:
+```bash
+npm run test
+```
+
+**If you do not want to save them to a file, you can run tests like
+this:**
+```bash
+env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
+ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
+```
+
+#### Lint
+
+Conforming to linting rules is a prerequisite to commit to skale.js.
+
+```bash
+npm run lint
+```
+
+## Contributing
 
 ### Build
 
@@ -61,45 +97,10 @@ npm run build-major
 npm publish
 ```
 
-#### Testing (mocha)
-
-To run tests locally you need save environment variables to `.env` file:
-* `IP`: ip of test geth
-* `PORT`: port of test geth
-* `ETH_ACCOUNT`: test account address
-* `ETH_PRIVATE_KEY`: test account privatekey
- 
-Then:
-```bash
-npm run test
-```
-
-**If you do not want to save them to a file, you can run tests like
-this:**
-```bash
-env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
-ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
-```
-
-#### Lint
-
-Conforming to linting rules is a prerequisite to commit to filestorage.js.
-
-```bash
-npm run lint
-```
-
-## Contributing
-
 **If you have any questions please ask our development community on 
 [Discord](https://discord.gg/vvUtWJB).**
 
 [![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
-
-#### Requirements
-- Node.js v8
-- npm
-
 
 ### Versioning
 
