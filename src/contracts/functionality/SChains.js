@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,15 +27,15 @@ const Helper = require('../../common/Helper');/** * Class representing a schains
 class SChainsContract extends BaseContract {
 
     /**
-   * Return price in wei of SKALE chain
-   *
-   * @function getSchainPrice
-   *
-   * @param {Object[]} params - just name of object in params.
-   * @param {number} params[].indexOfType - type of SKALE chain.
-   * @param {number} params[].lifetime - lifetime of SKALE chain in seconds
-   * @returns {number} - return price in wei for SKALE chain
-   */
+     * Return price in Wei of SKALE chain
+     *
+     * @function getSchainPrice
+     *
+     * @param {Object[]} params - just name of object in params.
+     * @param {number} params[].indexOfType - type of SKALE chain.
+     * @param {number} params[].lifetime - lifetime of SKALE chain in seconds
+     * @returns {number} - return price in wei for SKALE chain
+     */
     async getSchainPrice(params) {
         let requiredFields = ['indexOfType', 'lifetime'];
         Helper.checkRequiredFields(params, requiredFields);

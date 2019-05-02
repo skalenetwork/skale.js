@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ class ValidatorsData extends BaseContract {
      * @param {Object[]} params - just name of object in params.
      * @param {string} params[].nodeID - ID of node.
      * @param {string} params[].account - account address.
-     * @returns {object} - Return promise object
+     * @returns {Object} - Return promise object
      */
     async getValidatedArray(params) {
         let requiredFields = ['nodeID', 'account'];

@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -105,9 +105,9 @@ const Helper = {
      *
      * @function format
      *
-     * @param {array} fields - array of strings with custom field names.
-     * @param {array} array - array with raw rows.
-     * @returns {object} - return object.
+     * @param {Array} fields - array of strings with custom field names.
+     * @param {Array} array - array with raw rows.
+     * @returns {Object} - return object.
      */
     format(fields, array) {
         let object = {};
@@ -134,7 +134,7 @@ const Helper = {
      * @function timeout
      *
      * @param {number} ms - milliseconds.
-     * @returns {object} - return promise.
+     * @returns {Object} - return promise.
      */
     timeout(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -192,8 +192,8 @@ const Helper = {
      *
      * @function checkRequiredFields
      *
-     * @param {object} object - object.
-     * @param {array} requiredFields - array with fields name.
+     * @param {Object} object - object.
+     * @param {Array} requiredFields - array with fields name.
      * @returns {undefined} - nothing to return (just keep going code algorithm) or throw exception.
      */
     checkRequiredFields(object, requiredFields) {
@@ -249,7 +249,7 @@ const Helper = {
      *
      * @function addByteStrings
      *
-     * @param {array} byteStrings - array of byte strings (like [`0x..`, `0x..`, ...])
+     * @param {Array} byteStrings - array of byte strings (like [`0x..`, `0x..`, ...])
      * @returns {string} - return string (like `0x132`)
      */
     addByteStrings(byteStrings) {
@@ -265,7 +265,7 @@ const Helper = {
      *
      * @function rmZerosByteString
      *
-     * @param {array} byteString - byte string (like `0x0qqw`)
+     * @param {Array} byteString - byte string (like `0x0qqw`)
      * @returns {string} - return string (like `0xqqw`)
      */
     rmZerosByteString(byteString) {

@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -70,7 +70,7 @@ class NodesData extends BaseContract {
      *
      * @function getActiveNodeIPs
      *
-     * @returns {array} return array of strings for all active nodes (like ['0x..', '0x'...])
+     * @returns {Array} return array of strings for all active nodes (['0x..', '0x'...])
      */
     getActiveNodeIPs() {
         return this.web3contract.methods.getActiveNodeIPs().call();
@@ -81,8 +81,8 @@ class NodesData extends BaseContract {
      *
      * @function getNodesByIDs
      *
-     * @param {array} nodeIDs - The array of strings
-     * @returns {array} return array of objects (nodes)
+     * @param {Array} nodeIDs - The array of strings
+     * @returns {Array} return array of objects (nodes)
      */
     async getNodesByIDs(nodeIDs) {
         let nodes = [];
@@ -100,7 +100,7 @@ class NodesData extends BaseContract {
      *
      * @function getActiveNodesForSender
      *
-     * @returns {array} return array of objects (nodes)
+     * @returns {Array} return array of objects (nodes)
      */
     async getActiveNodesForSender() {
         let nodeIDs = await this.getActiveNodeIDsForSender();
@@ -112,7 +112,7 @@ class NodesData extends BaseContract {
      *
      * @function getActiveNodes
      *
-     * @returns {array} return array of objects (nodes)
+     * @returns {Array} return array of objects (nodes)
      */
     async getActiveNodes() {
         let nodeIDs = await this.getActiveNodeIDs();
@@ -124,7 +124,7 @@ class NodesData extends BaseContract {
      *
      * @function getActiveNodeIDs
      *
-     * @returns {array} return array of strings for all active nodes (like ['30'])
+     * @returns {Array} return array of strings for all active nodes (like ['30'])
      */
     async getActiveNodeIDs() {
         return await this.web3contract.methods.getActiveNodeIds().call();
@@ -135,7 +135,7 @@ class NodesData extends BaseContract {
      *
      * @function getActiveNodeIDsForSender
      *
-     * @returns {array} return array of string
+     * @returns {Array} return array of string
      */
     async getActiveNodeIDsForSender() {
         return await this.web3contract.methods.getActiveNodesByAddress().call();
@@ -159,10 +159,12 @@ class NodesData extends BaseContract {
      * @function isNodeNameAvailable
      *
      * @param {string} name - name of node.
-     * @returns {boolean}
+     * @returns {boolean} - returns true if node name is available.
      */
     async isNodeNameAvailable(name) {
-        let nodeId = this.nodeNameToId(name); // add '!' before await, because nodeNameCheck method was returned 'false' when name is available        // with '!' return 'true'
+        let nodeId = this.nodeNameToId(name);
+        // add '!' before await, because nodeNameCheck method was returned 'false' when name is available
+        // with '!' return 'true'
         return !await this.web3contract.methods.nodesNameCheck(nodeId).call();
     }
 
