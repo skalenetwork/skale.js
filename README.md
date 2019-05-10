@@ -46,14 +46,10 @@ Documentation can be found [here]()
 
 To run tests locally you need change the name `.env_example` to `.env`
 and save with yours environment variables:
-*   `IP`:
-    ip of test geth
-*   `PORT`:
-    port of test geth
-*   `ETH_ACCOUNT`:
-    test account address
-*   `ETH_PRIVATE_KEY`:
-    test account privatekey
+*   `IP`: ip of test geth
+*   `PORT`: port of test geth
+*   `ETH_ACCOUNT`: test account address
+*   `ETH_PRIVATE_KEY`: test account privatekey
  
 Then:
 
