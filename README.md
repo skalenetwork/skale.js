@@ -17,26 +17,22 @@ This is SKALE internal library which used SKALE manager
 
 ### Node
 
-``` bash
-npm install @skalenetwork/skale.js
-```
+    npm install @skalenetwork/skale.js
 
 ## Usage
 
-``` js
-const skale = require('@skalenetwork/skale.js');
-
-console.log(skale);
-> {
-    init: ... ,
-    ...
-    w3: {...},
-    w3events: {...},
-    helper: {...},
-    rand: ... ,
-    Listener: ... 
-}
-```
+    const skale = require('@skalenetwork/skale.js');
+    
+    console.log(skale);
+    > {
+        init: ... ,
+        ...
+        w3: {...},
+        w3events: {...},
+        helper: {...},
+        rand: ... ,
+        Listener: ... 
+    }
 
 ## Examples
 
@@ -50,58 +46,52 @@ Documentation can be found [here]()
 
 To run tests locally you need change the name `.env_example` to `.env`
 and save with yours environment variables:
-* `IP`: ip of test geth
-* `PORT`: port of test geth
-* `ETH_ACCOUNT`: test account address
-* `ETH_PRIVATE_KEY`: test account privatekey
+*   `IP`:
+    ip of test geth
+*   `PORT`:
+    port of test geth
+*   `ETH_ACCOUNT`:
+    test account address
+*   `ETH_PRIVATE_KEY`:
+    test account privatekey
  
 Then:
 
-``` bash
-npm run test
-```
+    npm run test
 
 **If you do not want to save them to a file, you can run tests like
 this:**
 
-``` bash
-env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
-ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
-```
+    env IP='IP' PORT='PORT' ETH_ACCOUNT='ETH_ACCOUNT' 
+    ETH_PRIVATE_KEY='ETH_PRIVATE_KEY' npm test
 
 #### Lint
 
 Conforming to linting rules is a prerequisite to commit to skale.js.
 
-``` bash
-npm run lint
-```
+    npm run lint
 
 ## Contributing
 
 ### Build
 
-``` bash
-# build patch version
-npm run build-patch
-
-# build minor version
-npm run build-minor
-
-# build major version
-npm run build-major
-```
+    # build patch version
+    npm run build-patch
+    
+    # build minor version
+    npm run build-minor
+    
+    # build major version
+    npm run build-major
 
 #### Build publish
 
-``` bash
-npm publish
-```
+    npm publish
 
-**If you have any questions please ask our development community on 
-[Discord](https://discord.gg/vvUtWJB).**
+**If you have any questions please ask our development community on**
+[Discord](<https://discord.gg/vvUtWJB>).
 
-[![Discord](https://img.shields.io/discord/534485763354787851.svg)](https://discord.gg/vvUtWJB)
+[![Discord](<https://img.shields.io/discord/534485763354787851.svg>)](<https://discord.gg/vvUtWJB>)
 
 ### Versioning
 
@@ -111,6 +101,8 @@ For more details see: https://semver.org/
 
 ## License
 
-![GitHub](https://img.shields.io/github/license/skalenetwork/skale.js.svg)
+![GitHub](<https://img.shields.io/github/license/skalenetwork/skale.js.svg>)
 
-All contributions are made under the [GNU Lesser General Public License v3](https://www.gnu.org/licenses/lgpl-3.0.en.html). See [LICENSE](LICENSE).
+All contributions are made under the
+[GNU Lesser General Public License v3](<https://www.gnu.org/licenses/lgpl-3.0.en.html>).
+See [LICENSE](LICENSE).
