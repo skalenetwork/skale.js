@@ -1,6 +1,6 @@
 {
   "name": "@skalenetwork/skale.js",
-  "version": "0.43.0",
+  "version": "0.43.4",
   "description": "SKALE client tools",
   "main": "dist/skale.min.js",
   "private": false,
@@ -17,9 +17,7 @@
   "dependencies": {
     "ethereumjs-util": "^6.1.0",
     "ethereumjs-wallet": "^0.6.3",
-    "protobufjs": "~6.8.4",
-    "web3": "1.0.0-beta.36",
-    "ws": "^4.0.0"
+    "web3": "1.0.0-beta.36"
   },
   "repository": {
     "type": "git",

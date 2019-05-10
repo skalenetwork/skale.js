@@ -34,7 +34,8 @@ const FIELDS = [
     'lifetime',
     'startDate',
     'deposit'
-];/** * Class representing a schainsdata. * @extends BaseContract */
+];
+/** * Class representing a schainsdata. * @extends BaseContract */
 class SChainsData extends BaseContract {
 
     /**
@@ -86,7 +87,7 @@ class SChainsData extends BaseContract {
     /**
      * Return number of SKALE chains for account
      *
-     * @function getSchainNameBySchainId
+     * @function getSchainListSize
      *
      * @param {Object[]} params - just name of object in params.
      * @param {string} params[].account - account address.

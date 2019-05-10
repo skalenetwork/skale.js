@@ -42,7 +42,7 @@ const NoWeb3ProvidedException = require('./exceptions/NoWeb3Provided');
 const NoContractFoundException = require('./exceptions/NoContractFound');
 const Helper = require('./common/Helper');
 
-const jsonData = require('../contracts/main.json');
+const jsonData = require('../contracts_data/main.json');
 
 const contractTypes = {
     'API': 1,
