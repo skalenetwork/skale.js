@@ -24,7 +24,12 @@
 
 const BaseContract = require('../BaseContract');
 const Helper = require('../../common/Helper');
-const NUMBER_OF_PORTS = 3;
+// const NUMBER_OF_PORTS = 3;
+const HTTP_JSON = 2;
+const WS_JSON = 3;
+const HTTPS_JSON = 7;
+const WSS_JSON = 8;
+
 const PORTS_PER_SCHAIN = 11;
 const FIELDS = [
     'name',
@@ -178,7 +183,10 @@ class SChainsData extends BaseContract {
         for (let i in schainNodes) {
             let schainNode = schainNodes[i];
             schainNode['basePort'] = await this.getSchainBasePort(name, schainNode['nodeID'], schainNode['basePort']);
-            schainNode['rpcPort'] = parseInt(schainNode['basePort'], 10) + NUMBER_OF_PORTS;
+            schainNode['httpRpcPort'] = parseInt(schainNode['basePort'], 10) + HTTP_JSON;
+            schainNode['httpsRpcPort'] = parseInt(schainNode['basePort'], 10) + HTTPS_JSON;
+            schainNode['wsRpcPort'] = parseInt(schainNode['basePort'], 10) + WS_JSON;
+            schainNode['wssRpcPort'] = parseInt(schainNode['basePort'], 10) + WSS_JSON;
         }
         return {schainNodes: schainNodes};
     }
@@ -196,6 +204,7 @@ class SChainsData extends BaseContract {
         let nodes = await this.getNodesForSchain(name);
         for (let i = 0; i < nodes.length; i++) {
             let node = nodes[i];
+            let nodeName = node['name'];
             let pk = node['publicKey'];
             let schainIndex = i;
             let nodeID = node['id'];
@@ -205,6 +214,7 @@ class SChainsData extends BaseContract {
             let publicIP = this.ipFromHex(node['publicIP']);
             let owner = Helper.getAddrFromPubKey(pk);
             nodesInfo.push({
+                'nodeName': nodeName,
                 'schainIndex': schainIndex,
                 'nodeID': nodeID,
                 'ip': ip,
