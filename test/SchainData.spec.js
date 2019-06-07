@@ -111,7 +111,10 @@ describe('check SchainData contract methods', function () {
             nodeID = node.nodeID;
             assert.isArray(nodes, 'nodes is array');
             assert.isObject(node, 'contain object in array');
-            assert.isNumber(node.rpcPort, 'it is number');
+            assert.isNumber(node.httpRpcPort, 'it is number');
+            assert.isNumber(node.httpsRpcPort, 'it is number');
+            assert.isNumber(node.wsRpcPort, 'it is number');
+            assert.isNumber(node.wssRpcPort, 'it is number');
         });
 
         it('should return array of Schain IDs running on a node by nodeID', async function () {
