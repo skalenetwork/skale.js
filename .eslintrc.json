@@ -19,6 +19,7 @@
   },
   "parser": "babel-eslint",
   "plugins": [
+    "markdown"
   ],
   "rules": {
     "block-scoped-var": 2,

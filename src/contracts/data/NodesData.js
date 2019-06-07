@@ -162,7 +162,9 @@ class NodesData extends BaseContract {
      * @returns {boolean}
      */
     async isNodeNameAvailable(name) {
-        let nodeId = this.nodeNameToId(name); // add '!' before await, because nodeNameCheck method was returned 'false' when name is available        // with '!' return 'true'
+        let nodeId = this.nodeNameToId(name);
+        // add '!' before await, because nodeNameCheck method was returned 'false' when name is available
+        // with '!' return 'true'
         return !await this.web3contract.methods.nodesNameCheck(nodeId).call();
     }
 
