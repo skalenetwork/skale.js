@@ -22,7 +22,8 @@
  * @date 2019
  */
 
-const AbstractMethodException = require('../exceptions/AbstractMethod');/** * Class representing a BaseListener. */
+const AbstractMethodException = require('../exceptions/AbstractMethod');
+/** * Class representing a BaseListener. */
 class BaseListener {
 
     /**
@@ -49,9 +50,6 @@ class BaseListener {
     turnOff() {
         let self = this;
         this.subscription.unsubscribe(function (error, success) {
-            if (error) {
-                console.log(error);
-            }
             if (success) {
                 self.active = false;
             }
