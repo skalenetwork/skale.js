@@ -49,7 +49,7 @@ class BaseListener {
 
     turnOff() {
         let self = this;
-        this.subscription.unsubscribe(function (success) {
+        this.subscription.unsubscribe(function (error, success) {
             if (success) {
                 self.active = false;
             }
