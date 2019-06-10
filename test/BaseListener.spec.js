@@ -64,6 +64,11 @@ describe('check BaseListener methods', function () {
         assert.isFalse(listener.isActive(), 'is not active');
     });
 
+    it('should turn off listener `.turnOff()`', async function () {
+        listener.errorCallback('some error message');
+        await Helper.timeout(5000);
+    });
+
     it('should destroy Schain for cleaning', async function () {
         let params = {
             name: sChainName,
