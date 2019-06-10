@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,16 +44,16 @@ const NODE_DEPOSIT = '100000000000000000000';/** * Class representing a manager.
 class Manager extends BaseContract {
 
     /**
-   * Create Node in network and return promise
-   *
-   * @function createNode
-   *
-   * @param {Object[]} params - just name of object in params.
-   * @param {string} params[].ip - ip of node.
-   * @param {string} params[].port - port of node.
-   * @param {string} params[].name - name of node.
-   * @returns {Object[]} return promise
-   */
+     * Create Node in network and return promise
+     *
+     * @function createNode
+     *
+     * @param {Object[]} params - just name of object in params.
+     * @param {string} params[].ip - IP of node.
+     * @param {string} params[].port - port of node.
+     * @param {string} params[].name - name of node.
+     * @returns {Object[]} return promise
+     */
     async createNode(params) {
         let requiredFields = ['ip', 'port', 'name'];
         let account = await this.w3.selectAccount(params.account);
@@ -107,17 +107,17 @@ class Manager extends BaseContract {
     }
 
     /**
-   * Create SKALE chain in network and return promise
-   *
-   * @function createSchain
-   *
-   * @param {Object[]} params - just name of object in params.
-   * @param {number} params[].lifetime - lifetime in seconds.
-   * @param {number} params[].typeOfNodes - type of SKALE chain.
-   * @param {string} params[].deposit - deposit of SKALE chain in wei.
-   * @param {string} params[].name - name of SKALE chain.
-   * @returns {Object[]} return promise
-   */
+     * Create SKALE chain in network and return promise
+     *
+     * @function createSchain
+     *
+     * @param {Object[]} params - just name of object in params.
+     * @param {number} params[].lifetime - lifetime in seconds.
+     * @param {number} params[].typeOfNodes - type of SKALE chain.
+     * @param {string} params[].deposit - deposit of SKALE chain in Wei.
+     * @param {string} params[].name - name of SKALE chain.
+     * @returns {Object[]} return promise
+     */
     async createSchain(params) {
         let requiredFields = ['lifetime', 'typeOfNodes', 'deposit', 'name'];
         let account = await this.w3.selectAccount(params.account);
@@ -163,18 +163,18 @@ class Manager extends BaseContract {
     }
 
     /**
-   * Convert Node parameters to bytes string
-   *
-   * @function createNodeDataToBytes
-   *
-   * @param {string} port - port of Node.
-   * @param {number} nonce - random numbers from `1` to `65534`.
-   * @param {string} ip - ip of Node.
-   * @param {string} name - name of Node.
-   * @param {string} pubIp - public IP of Node.
-   * @param {string} pubKey - public key.
-   * @returns {string} return bytes string (licke '0x...')
-   */
+     * Convert Node parameters to bytes string
+     *
+     * @function createNodeDataToBytes
+     *
+     * @param {string} port - port of Node.
+     * @param {number} nonce - random numbers from `1` to `65534`.
+     * @param {string} ip - ip of Node.
+     * @param {string} pubIp - public IP of Node.
+     * @param {string} name - name of Node.
+     * @param {string} pubKey - public key.
+     * @returns {string} return bytes string ('0x...')
+     */
     createNodeDataToBytes(port, nonce, ip, pubIp, name, pubKey) {
     // helpers
         let web3 = this.w3.web3;
@@ -195,17 +195,17 @@ class Manager extends BaseContract {
     }
 
     /**
-   * Convert Schain parameters to bytes string
-   *
-   * @function createSchainDataToBytes
-   *
-   * @param {string} operationName - name of operation for `operationTypes` constant.
-   * @param {number} lifetime - lifetime in seconds.
-   * @param {number} typeOfNodes - type of Schain.
-   * @param {string} name - name of Schain.
-   * @param {number} nonce - random number.
-   * @returns {string} return bytes string (licke '0x...')
-   */
+     * Convert SKALE chain parameters to bytes string
+     *
+     * @function createSchainDataToBytes
+     *
+     * @param {string} operationName - name of operation for `operationTypes` constant.
+     * @param {number} lifetime - lifetime in seconds.
+     * @param {number} typeOfNodes - type of SKALE chain.
+     * @param {number} nonce - random number.
+     * @param {string} name - name of SKALE chain.
+     * @returns {string} return bytes string ('0x...')
+     */
     createSchainDataToBytes(operationName, lifetime, typeOfNodes, nonce, name) {
         let web3 = this.w3.web3;
         let lifetimeHex = Helper.addZeroesToByte(web3.utils.toHex(lifetime), 32);
@@ -219,14 +219,14 @@ class Manager extends BaseContract {
     }
 
     /**
-   * delete Schain from contract
-   *
-   * @function deleteSchain
-   *
-   * @param {Object[]} params - just name of object in params.
-   * @param {string} params[].name - name of Schain.
-   * @returns {Object[]} return promise
-   */
+     * delete SKALE chain from contract
+     *
+     * @function deleteSchain
+     *
+     * @param {Object[]} params - just name of object in params.
+     * @param {string} params[].name - name of SKALE chain.
+     * @returns {Object[]} return promise
+     */
     async deleteSchain(params) {
         let requiredFields = ['name'];
         let account = await this.w3.selectAccount(params.account);

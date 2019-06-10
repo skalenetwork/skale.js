@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,11 +31,12 @@ const BaseListener = require('./listeners/BaseListener');
 const SkaleJs = {
 
     /**
-   * Initialization of skale-js library with WS address
-   * @param {string} ip - IPv4 address of SKALE node
-   * @param {number} wsPort - WS port of SKALE node
-   * @param {Object} abiData - JSON object containing SKALE contract ABIs and addresses
-   */
+     * Initialization of skale.js library with WS address
+     *
+     * @param {string} ip - IPv4 address of SKALE node
+     * @param {number} wsPort - WS port of SKALE node
+     * @param {Object} abiData - JSON object containing SKALE contract ABIs and addresses
+     */
     async init(ip, wsPort, abiData) {
         let wsAddr = Helper.generateWsAddr(ip, wsPort);
         SkaleWeb3.initWeb3(wsAddr, abiData);

@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,13 +22,6 @@
  * @date 2019
  */
 
-/**
- * Return string
- *
- * @function NoWeb3ProvidedException
- *
- * @returns {string} return message with info
- */
 module.exports = function NoWeb3ProvidedException() {
     this.message = 'web3 object not found, please invoke initWeb3() or setWeb3(web3Provider) APIs';
 };
