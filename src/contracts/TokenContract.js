@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ class TokenContract extends BaseContract {
      * @function balanceOf
      *
      * @param {string} account - account address.
-     * @returns {object} - Return promise object
+     * @returns {Object} - Return promise object
      */
     async balanceOf(account) {
         return await this.web3contract.methods.balanceOf(account).call();
@@ -51,7 +51,7 @@ class TokenContract extends BaseContract {
      * @param {string} params[].from - donor account address.
      * @param {string} params[].to - recipient account address.
      * @param {string} params[].amount - amount of SKL-tokens in wei.
-     * @returns {object} - Return promise object
+     * @returns {Object} - Return promise object
      */
     async transfer(params) {
         let requiredFields = ['from', 'to', 'amount'];
@@ -87,7 +87,7 @@ class TokenContract extends BaseContract {
      * @function getTransferHistory
      *
      * @param {string} account - account address.
-     * @returns {{from: [], to: []}} - object
+     * @returns {Object} - from and to object of transfer history
      */
     async getTransferHistory(account) {
         let from = await

@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,11 +26,12 @@
 class BaseContract {
 
     /**
-   * Create a basecontract.
-   * @param {Object[]} w3 - object of Web3.
-   * @param {string} contractAbi - abi of contract.
-   * @param {string} contractAddress - address of contract.
-   */
+     * Create a basecontract.
+     *
+     * @param {Object[]} w3 - object of Web3.
+     * @param {string} contractAbi - ABI of contract.
+     * @param {string} contractAddress - address of contract.
+     */
     constructor(w3, contractAbi, contractAddress) {
         w3.checkWeb3();
         this.contractAddress = contractAddress;

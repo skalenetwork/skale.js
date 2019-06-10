@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,13 +26,13 @@ const BaseContract = require('../BaseContract');
 class NodesContract extends BaseContract {
 
     /**
-   * Return node ID by name
-   *
-   * @function nodeNameToId
-   *
-   * @param {string} name - name of node.
-   * @returns {string} return node id
-   */
+     * Return node ID by name
+     *
+     * @function nodeNameToId
+     *
+     * @param {string} name - name of node.
+     * @returns {string} return node ID.
+     */
     nodeNameToId(name) {
         return this.w3.web3.utils.sha3(name);
     }

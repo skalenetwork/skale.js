@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -66,7 +66,7 @@ class SChainsData extends BaseContract {
      *
      * @param {Object[]} params - just name of object in params.
      * @param {string} params[].nodeID - The id of Node.
-     * @returns {array} SKALE chains ids like strings (example: ['1', '2'] not [1, 2])
+     * @returns {Array} SKALE chains ids like strings (example: ['1', '2'] not [1, 2])
      */
     async getSchainIdsForNode(params) {
         let requiredFields = ['nodeID'];
@@ -126,7 +126,7 @@ class SChainsData extends BaseContract {
      *
      * @param {Object[]} params - just name of object in params.
      * @param {string} params[].name - name of SKALE chain which user want to create.
-     * @returns {boolean}
+     * @returns {boolean} - returns true if SKALE chain is available.
      */
     isSchainNameAvailable(params) {
         let requiredFields = ['name'];
@@ -141,7 +141,7 @@ class SChainsData extends BaseContract {
      *
      * @param {Object[]} params - just name of object in params.
      * @param {string} params[].account - account address.
-     * @returns {[]} - Return array of objects
+     * @returns {Array} - Return array of objects
      */
     async getSchainListInfo(params) {
         let requiredFields = ['account'];
@@ -176,7 +176,7 @@ class SChainsData extends BaseContract {
      *
      * @param {string} name - name of SKALE chain.
      * @returns {Object[]} - which contains array of objects
-     * @returns {array} Object[].schainNodes - Return array of objects.
+     * @returns {Array} Object[].schainNodes - Return array of objects.
      */
     async getSchainNodes(name) {
         let schainNodes = await this.getNodesForSchainConfig(name);
@@ -197,7 +197,7 @@ class SChainsData extends BaseContract {
      * @function getNodesForSchainConfig
      *
      * @param {string} name - name of SKALE chain.
-     * @returns {array} - Return array of objects.
+     * @returns {Array} - Return array of objects.
      */
     async getNodesForSchainConfig(name) {
         let nodesInfo = [];
@@ -233,7 +233,7 @@ class SChainsData extends BaseContract {
      * @function getNodesForSchain
      *
      * @param {string} name - name of SKALE chain.
-     * @returns {array} - Return array of objects.
+     * @returns {Array} - Return array of objects.
      */
     async getNodesForSchain(name) {
         let nodeIDs = await this.getNodeIdsForSchain(name);
@@ -247,7 +247,7 @@ class SChainsData extends BaseContract {
      * @function getNodeIdsForSchain
      *
      * @param {string} name - name of SKALE chain.
-     * @returns {array} - Return array of strings.
+     * @returns {Array} - Return array of strings.
      */
     async getNodeIdsForSchain(name) {
         let NodesDataContract = this.w3.getContractByName('nodes_data');
@@ -297,7 +297,7 @@ class SChainsData extends BaseContract {
      * @function getSchainIndexInNode
      *
      * @param {string} schainName - name of SKALE chain.
-     * @param {array} nodeSchains - array of objects (SKALE chains) which is located on this node.
+     * @param {Array} nodeSchains - array of objects (SKALE chains) which is located on this node.
      * @returns {number} - return index of SKALE chain for this node
      */
     getSchainIndexInNode(schainName, nodeSchains) {
@@ -329,7 +329,7 @@ class SChainsData extends BaseContract {
      * @function getSchainsForNode
      *
      * @param {string} nodeID - node id.
-     * @returns {array} - return all SKALE chains for this node
+     * @returns {Array} - return all SKALE chains for this node
      */
     async getSchainsForNode(nodeID) {
         let schains = [];

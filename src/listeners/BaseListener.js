@@ -1,6 +1,6 @@
 /**
  * @license
- * SKALE skale-js
+ * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,8 +28,9 @@ class BaseListener {
 
     /**
      * Create a baselistener.
+     *
      * @param {Object[]} event - Web3 event.
-     * @param {method} handler - invoke when event is coming.
+     * @param {Function} handler - invoke when event is coming.
      */
     constructor(event, handler) {
         this.subscription = event;
