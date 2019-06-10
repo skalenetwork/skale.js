@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../../.env' });
+require('dotenv').config({path: '../../.env'});
 
 const skale = require('../../src/index');
 const Web3 = require('web3');
@@ -16,7 +16,8 @@ async function test() {
 
     // generate random node_ip
     let nodeIP = (Math.floor(Math.random() * 255) + 1) + '.' + (Math.floor(Math.random() * 255) + 0) + '.' +
-        (Math.floor(Math.random() * 255) + 0) + '.' + (Math.floor(Math.random() * 255) + 0); // generate random node_port
+        (Math.floor(Math.random() * 255) + 0) + '.' + (Math.floor(Math.random() * 255) + 0);
+    // generate random node_port
     let nodePort = (Math.floor(Math.random() * 60535) + 1);
     let params = {
         ip: nodeIP,

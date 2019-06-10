@@ -30,11 +30,6 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should Schain create for tests below', async function () {
-            new skale.Listener(skale.contract('schains_functionality').events.SchainCreated(), async function (event) {
-                let SchainName = event.returnValues.name;
-                assert.equal(SchainName, params.name, 'SchainName equal `params.name`');
-            });
-
             let deposit = await skale.contract('schains_functionality').getSchainPrice({
                 indexOfType: constants.TYPE_OF_NODES, lifetime: constants.YEAR_IN_SECONDS
             });
@@ -46,9 +41,16 @@ describe('check SchainData contract methods', function () {
                 privateKey: privateKey,
                 account: account
             };
+            let res = new skale.Listener(skale.contract('schains_functionality').events.SchainCreated(),
+                async function (event) {
+                    let SchainName = event.returnValues.name;
+                    assert.equal(SchainName, params.name, 'SchainName equal `params.name`');
+                });
             await skale.contractEv('manager').createSchain(params).then(function (nonce) {
                 expect(parseInt(nonce, 10)).to.be.a('number');
             });
+            assert.isNotNull(res, 'is not null');
+
         });
 
         it('should get Schain ID by Schain name', async function () {
