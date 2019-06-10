@@ -10,8 +10,9 @@
     "build-major": "VER=major ./build.sh",
     "dev": "WEBPACK_ENV=dev webpack",
     "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
-    "test": "mocha test --exit --timeout 50000",
+    "test": "nyc --reporter=lcov mocha test --exit --timeout 50000",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "coverage": "codecov",
     "prepush": "npm run lint && npm test"
   },
   "dependencies": {
@@ -44,7 +45,8 @@
     "eslint": "^5.15.3",
     "eslint-loader": "^2.1.2",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
     "semver": "^5.6.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1"
