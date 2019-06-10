@@ -52,6 +52,8 @@ class BaseListener {
         this.subscription.unsubscribe(function (error, success) {
             if (success) {
                 self.active = false;
+            } else {
+                console.log(error);
             }
         });
     }
