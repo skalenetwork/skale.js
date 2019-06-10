@@ -23,10 +23,7 @@
  */
 
 const AbstractMethodException = require('../exceptions/AbstractMethod');
-
-/**
- * Class representing a BaseListener.
- */
+/** * Class representing a BaseListener. */
 class BaseListener {
 
     /**
@@ -45,7 +42,9 @@ class BaseListener {
     }
 
     errorCallback(err) {
-        console.log(err);
+        if (err) {
+            console.log(err);
+        }
     }
 
     turnOff() {
