@@ -1,12 +1,15 @@
 require('dotenv').config();
 
-const constants = require('./constantsForTests');
+import constants = require('./constantsForTests');
 
-const assert = require('chai').assert;
-const skale = require('../src/index');
-const Helper = require('../src/common/Helper');
-const Web3 = require('web3');
-const Rand = require('../src/common/Rand');
+import { assert } from 'chai';
+
+import skale = require('../src/index');
+import Helper = require('../src/common/Helper');
+import Web3 = require('web3');
+import Rand = require('../src/common/Rand');
+
+const abiData = require('../contracts_data/main.json');
 
 // data from .env
 const ip = process.env.IP;
@@ -20,8 +23,8 @@ describe('check BaseListener methods', function () {
     let listener, eventReturnValues = '';
     before(async function () {
         let web3SocketProvider = new Web3.providers.WebsocketProvider(`ws://${ip}:${port}`);
-        await skale.initBothProviders(ip, port, web3SocketProvider);
-        listener = new skale.Listener(skale.contract('schains_functionality').events.SchainCreated(),
+        await (skale as any).initWithProvider(web3SocketProvider, abiData);
+        listener = new (skale as any).Listener(skale.contract('schains_functionality').events.SchainCreated(),
             async function (event) {
                 // console.log('event event event event ', event);
                 eventReturnValues = event.returnValues;
@@ -29,7 +32,7 @@ describe('check BaseListener methods', function () {
     });
 
     it('check event fields', async function () {
-        let deposit = await skale.contract('schains_functionality').getSchainPrice({
+        let deposit = await (skale as any).contract('schains_functionality').getSchainPrice({
             indexOfType: constants.TYPE_OF_NODES, lifetime: constants.YEAR_IN_SECONDS
         });
         let params = {
@@ -40,7 +43,7 @@ describe('check BaseListener methods', function () {
             privateKey: privateKey,
             account: account
         };
-        await skale.contractEv('manager').createSchain(params).then(function (nonce) {
+        await (skale as any).contract('manager').createSchain(params).then(function (nonce) {
         });
         // waiting for event
         while (eventReturnValues === '') {
@@ -48,14 +51,14 @@ describe('check BaseListener methods', function () {
             await Helper.timeout(1000);
         }
         //
-        assert.equal(eventReturnValues.name, sChainName, 'equal');
-        assert.isNotNull(eventReturnValues.name, 'isNotNull');
-        assert.isNotNull(eventReturnValues.owner, 'isNotNull');
-        assert.isNotNull(eventReturnValues.partOfNode, 'isNotNull');
-        assert.isNotNull(eventReturnValues.lifetime, 'isNotNull');
-        assert.isNotNull(eventReturnValues.numberOfNodes, 'isNotNull');
-        assert.isNotNull(eventReturnValues.deposit, 'isNotNull');
-        assert.isNotNull(eventReturnValues.gasSpend, 'isNotNull');
+        assert.equal((eventReturnValues as any).name, sChainName, 'equal');
+        assert.isNotNull((eventReturnValues as any).name, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).owner, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).partOfNode, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).lifetime, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).numberOfNodes, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).deposit, 'isNotNull');
+        assert.isNotNull((eventReturnValues as any).gasSpend, 'isNotNull');
     });
 
     it('should turn off listener `.turnOff()`', async function () {
@@ -75,7 +78,7 @@ describe('check BaseListener methods', function () {
             privateKey: privateKey,
             account: account
         };
-        await skale.contractEv('manager').deleteSchain(params);
+        await skale.contract('manager').deleteSchain(params);
     });
 
 });

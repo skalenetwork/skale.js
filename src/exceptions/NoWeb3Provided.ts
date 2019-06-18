@@ -23,6 +23,6 @@
  */
 
 export = function NoWeb3ProvidedException() {
-    this.message = 'web3 object not found, please invoke initWeb3() or setWeb3(web3Provider) APIs';
+    (this as any).message = 'web3 object not found, please invoke initWeb3() or setWeb3(web3Provider) APIs';
 };
 

@@ -118,7 +118,7 @@ const SkaleWeb3 = {
     contracts: {},
 
     checkWeb3() {
-        if (this.web3 === undefined) {
+        if (!this.web3) {
             throw new NoWeb3ProvidedException();
         }
         return true;

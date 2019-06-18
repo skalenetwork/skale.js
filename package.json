@@ -11,6 +11,7 @@
     "dev": "WEBPACK_ENV=dev webpack",
     "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
     "test": "nyc --reporter=lcov mocha test --exit --timeout 50000",
+    "testTs": "nyc --reporter=lcov mocha -r /usr/local/lib/node_modules/ts-node/register BaseListener.spec.ts --exit --timeout 50000",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "coverage": "codecov",
     "prepush": "npm run lint && npm test"
@@ -37,6 +38,8 @@
   },
   "homepage": "https://github.com/skalenetwork/skale.js#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.4",
@@ -53,7 +56,9 @@
     "nyc": "^14.1.1",
     "semver": "^5.6.0",
     "ts-loader": "^6.0.2",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
+    "typings": "^2.1.1",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1"
   }

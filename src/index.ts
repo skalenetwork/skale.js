@@ -23,7 +23,7 @@
  */
 
 import SkaleWeb3 = require('./SkaleWeb3');
-import SkaleWeb3Events = require('./SkaleWeb3Events'); // this is temporary
+// import SkaleWeb3Events = require('./SkaleWeb3Events'); // this is temporary
 import Helper = require('./common/Helper');
 import Rand = require('./common/Rand');
 import BaseListener = require('./listeners/BaseListener');
@@ -48,26 +48,26 @@ let SkaleJs = {
         await SkaleWeb3.initAllContracts();
     },
 
-    async initBothProviders(ip, wsPort, web3Provider, abiData) {
-        SkaleWeb3.setWeb3(web3Provider, abiData);
-        await SkaleWeb3.initAllContracts();
-
-        let wsAddr = Helper.generateWsAddr(ip, wsPort);
-        SkaleWeb3Events.initWeb3(wsAddr, abiData);
-        await SkaleWeb3Events.initAllContracts();
-    },
+    // async initBothProviders(ip, wsPort, web3Provider, abiData) {
+    //     SkaleWeb3.setWeb3(web3Provider, abiData);
+    //     await SkaleWeb3.initAllContracts();
+    //
+    //     let wsAddr = Helper.generateWsAddr(ip, wsPort);
+    //     SkaleWeb3Events.initWeb3(wsAddr, abiData);
+    //     await SkaleWeb3Events.initAllContracts();
+    // },
 
     contract(name) {
         return SkaleWeb3.getContractByName(name);
     },
 
-    contractEv(name) {
-        return SkaleWeb3Events.getContractByName(name);
-    }
+    // contractEv(name) {
+    //     return SkaleWeb3Events.getContractByName(name);
+    // }
 
 };
 (SkaleJs as any).w3 = SkaleWeb3;
-(SkaleJs as any).w3events = SkaleWeb3Events; // this is temporary
+// (SkaleJs as any).w3events = SkaleWeb3Events; // this is temporary
 (SkaleJs as any).helper = Helper;
 (SkaleJs as any).rand = Rand;
 (SkaleJs as any).Listener = BaseListener;
