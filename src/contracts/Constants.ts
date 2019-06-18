@@ -77,5 +77,5 @@ class Constants extends BaseContract {
 
 }
 
-module.exports = Constants;
+export = Constants;
 

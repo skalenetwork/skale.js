@@ -185,4 +185,4 @@ class NodesData extends BaseContract {
 
 }
 
-module.exports = NodesData;
+export = NodesData;

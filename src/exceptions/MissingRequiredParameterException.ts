@@ -18,11 +18,22 @@
  */
 
 /**
- * @file NoWeb3Provided.js
+ * @file MissingRequiredParameterException.js
  * @date 2019
  */
 
-module.exports = function NoWeb3ProvidedException() {
-    this.message = 'web3 object not found, please invoke initWeb3() or setWeb3(web3Provider) APIs';
+/**
+ * Return string
+ *
+ * @function MissingRequiredParameterException
+ *
+ * @param {string} name - name of required field which is not found.
+ * @returns {string} return message with info
+ */
+export = function MissingRequiredParameterException(name) {
+    this.name = name;
+    this.message = 'Required field isn\'t found';
+    this.toString = function () {
+        return this.message + ' ' + this.name;
+    };
 };
-

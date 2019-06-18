@@ -22,13 +22,13 @@
  * @date 2019
  */
 
-const SkaleWeb3 = require('./SkaleWeb3');
-const SkaleWeb3Events = require('./SkaleWeb3Events'); // this is temporary
-const Helper = require('./common/Helper');
-const Rand = require('./common/Rand');
-const BaseListener = require('./listeners/BaseListener');
+import SkaleWeb3 = require('./SkaleWeb3');
+import SkaleWeb3Events = require('./SkaleWeb3Events'); // this is temporary
+import Helper = require('./common/Helper');
+import Rand = require('./common/Rand');
+import BaseListener = require('./listeners/BaseListener');
 
-const SkaleJs = {
+let SkaleJs = {
 
     /**
      * Initialization of skale.js library with WS address
@@ -66,9 +66,10 @@ const SkaleJs = {
     }
 
 };
-module.exports = SkaleJs;
-module.exports.w3 = SkaleWeb3;
-module.exports.w3events = SkaleWeb3Events; // this is temporary
-module.exports.helper = Helper;
-module.exports.rand = Rand;
-module.exports.Listener = BaseListener;
+(SkaleJs as any).w3 = SkaleWeb3;
+(SkaleJs as any).w3events = SkaleWeb3Events; // this is temporary
+(SkaleJs as any).helper = Helper;
+(SkaleJs as any).rand = Rand;
+(SkaleJs as any).Listener = BaseListener;
+export = SkaleJs;
+

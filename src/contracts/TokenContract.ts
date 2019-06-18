@@ -111,5 +111,5 @@ class TokenContract extends BaseContract {
 
 }
 
-module.exports = TokenContract;
+export = TokenContract;
 

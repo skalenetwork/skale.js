@@ -1,6 +1,6 @@
 {
   "name": "@skalenetwork/skale.js",
-  "version": "0.43.5",
+  "version": "0.43.6",
   "description": "SKALE client tools",
   "main": "dist/skale.min.js",
   "private": false,
@@ -16,8 +16,10 @@
     "prepush": "npm run lint && npm test"
   },
   "dependencies": {
+    "awesome-typescript-loader": "^5.2.1",
     "ethereumjs-util": "^6.1.0",
     "ethereumjs-wallet": "^0.6.3",
+    "source-map-loader": "^0.2.4",
     "web3": "1.0.0-beta.36"
   },
   "repository": {
@@ -44,12 +46,14 @@
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-loader": "^2.1.2",
-    "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-jsdoc": "^4.8.3",
+    "eslint-plugin-markdown": "^1.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "semver": "^5.6.0",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.2",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1"
   }

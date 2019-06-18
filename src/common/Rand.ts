@@ -18,22 +18,37 @@
  */
 
 /**
- * @file MissingRequiredParameterException.js
+ * @file Rand.js
  * @date 2019
  */
 
-/**
- * Return string
- *
- * @function MissingRequiredParameterException
- *
- * @param {string} name - name of required field which is not found.
- * @returns {string} return message with info
- */
-module.exports = function MissingRequiredParameterException(name) {
-    this.name = name;
-    this.message = 'Required field isn\'t found';
-    this.toString = function () {
-        return this.message + ' ' + this.name;
-    };
-};
+class Rand {
+
+    /**
+     * Returns a random integer between min (inclusive) and max (inclusive)
+     *
+     * @function integer
+     *
+     * @param {number} min - min value.
+     * @param {number} max - max value.
+     * @returns {number} - Return random integer.
+     */
+    static integer(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    /**
+     * Returns random string
+     *
+     * @function randomString
+     *
+     * @param {number} length - length of random string.
+     * @returns {string} - Return random string.
+     */
+    static randomString(length) {
+        return Math.random().toString(36).substring(length);
+    }
+
+}
+
+export = Rand;

@@ -345,5 +345,5 @@ class SChainsData extends BaseContract {
 
 }
 
-module.exports = SChainsData;
+export = SChainsData;
 

@@ -30,7 +30,7 @@
  * @param {string} message - message with info.
  * @returns {string} return message with info
  */
-module.exports = function InvalidInputException(message) {
+export = function InvalidInputException(message) {
     this.message = message;
     this.toString = function () {
         return this.message;

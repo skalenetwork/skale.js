@@ -261,5 +261,5 @@ class Manager extends BaseContract {
 
 }
 
-module.exports = Manager;
+export = Manager;
 

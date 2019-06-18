@@ -18,29 +18,29 @@
  */
 
 /**
- * @file SkaleWeb3.js
+ * @file SkaleWeb3Events.js
  * @date 2019
  */
 
-const Web3 = require('web3');
+import Web3 = require('web3');
 
-const BaseContract = require('./contracts/BaseContract');
-const ContractManager = require('./contracts/ContractManager');
-const Manager = require('./contracts/Manager');
-const TokenContract = require('./contracts/TokenContract');
-const Constants = require('./contracts/Constants');
+import BaseContract = require('./contracts/BaseContract');
+import ContractManager = require('./contracts/ContractManager');
+import Manager = require('./contracts/Manager');
+import TokenContract = require('./contracts/TokenContract');
+import Constants = require('./contracts/Constants');
 
-const NodesContract = require('./contracts/functionality/Nodes');
-const SChainsContract = require('./contracts/functionality/SChains');
-const ValidatorsContract = require('./contracts/functionality/Validators');
+import NodesContract = require('./contracts/functionality/Nodes');
+import SChainsContract = require('./contracts/functionality/SChains');
+import ValidatorsContract = require('./contracts/functionality/Validators');
 
-const NodesData = require('./contracts/data/NodesData');
-const SChainsData = require('./contracts/data/SChainsData');
-const ValidatorsData = require('./contracts/data/ValidatorsData');
+import NodesData = require('./contracts/data/NodesData');
+import SChainsData = require('./contracts/data/SChainsData');
+import ValidatorsData = require('./contracts/data/ValidatorsData');
 
-const NoWeb3ProvidedException = require('./exceptions/NoWeb3Provided');
-const NoContractFoundException = require('./exceptions/NoContractFound');
-const Helper = require('./common/Helper');
+import NoWeb3ProvidedException = require('./exceptions/NoWeb3Provided');
+import NoContractFoundException = require('./exceptions/NoContractFound');
+import Helper = require('./common/Helper');
 
 const jsonData = require('../contracts_data/main.json');
 
@@ -222,4 +222,4 @@ const SkaleWeb3 = {
     }
 
 };
-module.exports = SkaleWeb3;
+export = SkaleWeb3;

@@ -46,5 +46,5 @@ class ValidatorsData extends BaseContract {
 
 }
 
-module.exports = ValidatorsData;
+export = ValidatorsData;
 

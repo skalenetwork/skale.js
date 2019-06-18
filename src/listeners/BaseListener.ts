@@ -33,9 +33,9 @@ class BaseListener {
      * @param {Function} handler - invoke when event is coming.
      */
     constructor(event, handler) {
-        this.subscription = event;
-        this.subscription.on('data', handler).on('error', this.errorCallback);
-        this.active = true;
+        (this as any).subscription = event;
+        (this as any).subscription.on('data', handler).on('error', this.errorCallback);
+        (this as any).active = true;
     }
 
     eventCallback() {
@@ -49,8 +49,8 @@ class BaseListener {
     }
 
     turnOff() {
-        let self = this;
-        this.subscription.unsubscribe(function (error, success) {
+        let self = (this as any);
+        (this as any).subscription.unsubscribe(function (error, success) {
             if (success) {
                 self.active = false;
             }
@@ -58,9 +58,9 @@ class BaseListener {
     }
 
     isActive() {
-        return this.active;
+        return (this as any).active;
     }
 }
 
-module.exports = BaseListener;
+export = BaseListener;
 

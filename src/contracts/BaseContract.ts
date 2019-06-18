@@ -34,13 +34,13 @@ class BaseContract {
      */
     constructor(w3, contractAbi, contractAddress) {
         w3.checkWeb3();
-        this.contractAddress = contractAddress;
-        this.web3contract = new w3.web3.eth.Contract(contractAbi, contractAddress);
-        this.w3 = w3;
-        this.events = this.web3contract.events;
+        (this as any).contractAddress = contractAddress;
+        (this as any).web3contract = new w3.web3.eth.Contract(contractAbi, contractAddress);
+        (this as any).w3 = w3;
+        (this as any).events = (this as any).web3contract.events;
     }
 
 }
 
-module.exports = BaseContract;
+export = BaseContract;
 

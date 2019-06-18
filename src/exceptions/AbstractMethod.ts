@@ -18,21 +18,21 @@
  */
 
 /**
- * @file NoContractFound.js
+ * @file AbstractMethod.js
  * @date 2019
  */
 
 /**
  * Return string
  *
- * @function NoContractFoundException
+ * @function AbstractMethodException
  *
- * @param {string} name - name of contract.
+ * @param {string} name - name of method.
  * @returns {string} return message with info
  */
-module.exports = function NoContractFoundException(name) {
+export = function AbstractMethodException(name) {
     this.name = name;
-    this.message = 'Contract with such name was not found';
+    this.message = 'Method should be implemented';
     this.toString = function () {
         return this.message + ' ' + this.name;
     };

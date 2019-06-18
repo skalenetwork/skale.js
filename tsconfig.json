@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "sourceMap": true,
+//    "noImplicitAny": true,
+    "outDir": "./build"
+    //    "strict": true,
+    //    "alwaysStrict": true
+    //    "allowJs": true,
+    //    "esModuleInterop": true,
+    //    "allowSyntheticDefaultImports": true,
+    //    "lib": [
+    //      "es2015"
+    //    ],
+    //    "watch": true
+  },
+  "include": [
+    "./src/**/*"
+    //    "./test/**/*"
+  ]
+}

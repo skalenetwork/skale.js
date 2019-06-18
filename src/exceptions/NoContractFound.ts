@@ -18,26 +18,22 @@
  */
 
 /**
- * @file Nodes.js
+ * @file NoContractFound.js
  * @date 2019
  */
 
-const BaseContract = require('../BaseContract');
-class NodesContract extends BaseContract {
-
-    /**
-     * Return node ID by name
-     *
-     * @function nodeNameToId
-     *
-     * @param {string} name - name of node.
-     * @returns {string} return node ID.
-     */
-    nodeNameToId(name) {
-        return this.w3.web3.utils.sha3(name);
-    }
-
-}
-
-module.exports = NodesContract;
-
+/**
+ * Return string
+ *
+ * @function NoContractFoundException
+ *
+ * @param {string} name - name of contract.
+ * @returns {string} return message with info
+ */
+export = function NoContractFoundException(name) {
+    this.name = name;
+    this.message = 'Contract with such name was not found';
+    this.toString = function () {
+        return this.message + ' ' + this.name;
+    };
+};

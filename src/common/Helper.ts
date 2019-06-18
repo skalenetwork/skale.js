@@ -307,4 +307,4 @@ const Helper = {
     }
 
 };
-module.exports = Helper;
+export = Helper;

@@ -18,22 +18,14 @@
  */
 
 /**
- * @file AbstractMethod.js
+ * @file Validators.js
  * @date 2019
  */
 
-/**
- * Return string
- *
- * @function AbstractMethodException
- *
- * @param {string} name - name of method.
- * @returns {string} return message with info
- */
-module.exports = function AbstractMethodException(name) {
-    this.name = name;
-    this.message = 'Method should be implemented';
-    this.toString = function () {
-        return this.message + ' ' + this.name;
-    };
-};
+const BaseContract = require('../BaseContract');
+class ValidatorsContract extends BaseContract {
+
+}
+
+export = ValidatorsContract;
+

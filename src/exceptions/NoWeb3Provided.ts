@@ -18,37 +18,11 @@
  */
 
 /**
- * @file Rand.js
+ * @file NoWeb3Provided.js
  * @date 2019
  */
 
-class Rand {
+export = function NoWeb3ProvidedException() {
+    this.message = 'web3 object not found, please invoke initWeb3() or setWeb3(web3Provider) APIs';
+};
 
-    /**
-     * Returns a random integer between min (inclusive) and max (inclusive)
-     *
-     * @function integer
-     *
-     * @param {number} min - min value.
-     * @param {number} max - max value.
-     * @returns {number} - Return random integer.
-     */
-    static integer(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    /**
-     * Returns random string
-     *
-     * @function randomString
-     *
-     * @param {number} length - length of random string.
-     * @returns {string} - Return random string.
-     */
-    static randomString(length) {
-        return Math.random().toString(36).substring(length);
-    }
-
-}
-
-module.exports = Rand;

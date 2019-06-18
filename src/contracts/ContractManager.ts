@@ -56,5 +56,5 @@ class ContractManager extends BaseContract {
 
 }
 
-module.exports = ContractManager;
+export = ContractManager;
 

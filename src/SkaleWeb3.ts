@@ -18,7 +18,7 @@
  */
 
 /**
- * @file SkaleWeb3Events.js
+ * @file SkaleWeb3.js
  * @date 2019
  */
 
@@ -222,4 +222,4 @@ const SkaleWeb3 = {
     }
 
 };
-module.exports = SkaleWeb3;
+export = SkaleWeb3;

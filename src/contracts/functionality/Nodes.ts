@@ -18,31 +18,26 @@
  */
 
 /**
- * @file SChains.js
+ * @file Nodes.js
  * @date 2019
  */
 
 const BaseContract = require('../BaseContract');
-const Helper = require('../../common/Helper');/** * Class representing a schainscontract. * @extends BaseContract */
-class SChainsContract extends BaseContract {
+class NodesContract extends BaseContract {
 
     /**
-     * Return price in Wei of SKALE chain
+     * Return node ID by name
      *
-     * @function getSchainPrice
+     * @function nodeNameToId
      *
-     * @param {Object[]} params - just name of object in params.
-     * @param {number} params[].indexOfType - type of SKALE chain.
-     * @param {number} params[].lifetime - lifetime of SKALE chain in seconds
-     * @returns {number} - return price in wei for SKALE chain
+     * @param {string} name - name of node.
+     * @returns {string} return node ID.
      */
-    async getSchainPrice(params) {
-        let requiredFields = ['indexOfType', 'lifetime'];
-        Helper.checkRequiredFields(params, requiredFields);
-        return await this.web3contract.methods.getSchainPrice(params.indexOfType, params.lifetime).call();
+    nodeNameToId(name) {
+        return this.w3.web3.utils.sha3(name);
     }
 
 }
 
-module.exports = SChainsContract;
+export = NodesContract;
 
