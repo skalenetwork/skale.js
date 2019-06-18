@@ -1,5 +1,4 @@
-/*
-/!**
+/**
  * @license
  * SKALE skale.js
  * Copyright (C) 2019-Present SKALE Labs
@@ -16,12 +15,12 @@
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *!/
+ */
 
-/!**
+/**
  * @file SkaleWeb3Events.js
  * @date 2019
- *!/
+ */
 
 import Web3 = require('web3');
 
@@ -224,4 +223,3 @@ const SkaleWeb3 = {
 
 };
 export = SkaleWeb3;
-*/
