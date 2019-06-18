@@ -1,12 +1,11 @@
 require('dotenv').config();
 
-const constants = require('./constantsForTests');
-const expect = require('chai').expect;
-const assert = require('chai').assert;
-const Rand = require('../src/common/Rand');
-const skale = require('../src/index');
-const Web3 = require('web3');
-const Helper = require('../src/common/Helper');
+import constants = require('./constantsForTests');
+import {assert, expect} from 'chai';
+import Rand = require('../src/common/Rand');
+import skale = require('../src/index');
+import Web3 = require('web3');
+import Helper = require('../src/common/Helper');
 
 // data from .env
 const ip = process.env.IP;
@@ -15,22 +14,24 @@ const account = process.env.ETH_ACCOUNT;
 const privateKey = process.env.ETH_PRIVATE_KEY;
 //
 const sChainName = Rand.randomString(7);
+const abiData = require('../contracts_data/main.json');
+
 describe('check SchainData contract methods', function () {
 
     describe('check SchainData contract methods', function () {
         let schainId;
         let nodeID;
         after(function () {
-            skale.w3.closeConnection();
+            (skale as any).w3.closeConnection();
         });
 
         beforeEach(async function () {
             let web3SocketProvider = new Web3.providers.WebsocketProvider(`ws://${ip}:${port}`);
-            await skale.initBothProviders(ip, port, web3SocketProvider);
+            await (skale as any).initWithProvider(web3SocketProvider, abiData);
         });
 
         it('should Schain create for tests below', async function () {
-            let deposit = await skale.contract('schains_functionality').getSchainPrice({
+            let deposit = await (skale as any).contract('schains_functionality').getSchainPrice({
                 indexOfType: constants.TYPE_OF_NODES, lifetime: constants.YEAR_IN_SECONDS
             });
             let params = {
@@ -41,12 +42,12 @@ describe('check SchainData contract methods', function () {
                 privateKey: privateKey,
                 account: account
             };
-            let res = new skale.Listener(skale.contract('schains_functionality').events.SchainCreated(),
+            let res = new (skale as any).Listener(skale.contract('schains_functionality').events.SchainCreated(),
                 async function (event) {
                     let SchainName = event.returnValues.name;
                     assert.equal(SchainName, params.name, 'SchainName equal `params.name`');
                 });
-            await skale.contractEv('manager').createSchain(params).then(function (nonce) {
+            await (skale as any).contract('manager').createSchain(params).then(function (nonce) {
                 expect(parseInt(nonce, 10)).to.be.a('number');
             });
             assert.isNotNull(res, 'is not null');
@@ -56,7 +57,7 @@ describe('check SchainData contract methods', function () {
         it('should get Schain ID by Schain name', async function () {
             //
             await Helper.timeout(5000);
-            schainId = await skale.contract('schains_data').sChainNameToId(sChainName);
+            schainId = await (skale as any).contract('schains_data').sChainNameToId(sChainName);
             assert.isNotNull(schainId, 'is not null');
             assert.isString(schainId, 'isString');
             //
@@ -64,7 +65,7 @@ describe('check SchainData contract methods', function () {
 
         it('should get Schain by Schain ID', async function () {
             await Helper.timeout(5000);
-            let schain = await skale.contract('schains_data').getSchain({id: schainId});
+            let schain = await (skale as any).contract('schains_data').getSchain({id: schainId});
             console.log('schainName', schain.name);
             console.log('schainName', sChainName);
 
@@ -79,13 +80,13 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should check if Schain name is available', async function () {
-            let res = await skale.contract('schains_data').isSchainNameAvailable({name: sChainName});
+            let res = await (skale as any).contract('schains_data').isSchainNameAvailable({name: sChainName});
             assert.isNotTrue(res, 'name are not available');
             assert.isFalse(res, 'name are not available');
         });
 
         it('should return array of Schain nodes', async function () {
-            let nodes = await skale.contract('schains_data').getNodesForSchain(sChainName);
+            let nodes = await (skale as any).contract('schains_data').getNodesForSchain(sChainName);
             let node = nodes[0];
             assert.isArray(nodes, 'nodes is array');
             assert.isObject(node, 'contain object in array');
@@ -93,13 +94,13 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should return array of Schain nodes IDs', async function () {
-            let nodeIDs = await skale.contract('schains_data').getNodeIdsForSchain(sChainName);
+            let nodeIDs = await (skale as any).contract('schains_data').getNodeIdsForSchain(sChainName);
             assert.isArray(nodeIDs, 'nodes is array');
             assert.isNumber(parseInt(nodeIDs[0], 10), 'it is number');
         });
 
         it('should return array of Schain nodes with unhexed (without `0x`) in IP fields', async function () {
-            let nodes = await skale.contract('schains_data').getNodesForSchainConfig(sChainName);
+            let nodes = await (skale as any).contract('schains_data').getNodesForSchainConfig(sChainName);
             let node = nodes[0];
             assert.isArray(nodes, 'nodes is array');
             assert.isObject(node, 'contain object in array');
@@ -107,7 +108,7 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should return array of Schain nodes with add `rpcPort` to node', async function () {
-            let schainNodes = await skale.contract('schains_data').getSchainNodes(sChainName);
+            let schainNodes = await (skale as any).contract('schains_data').getSchainNodes(sChainName);
             let nodes = schainNodes['schainNodes'];
             let node = nodes[0];
             nodeID = node.nodeID;
@@ -120,13 +121,13 @@ describe('check SchainData contract methods', function () {
         });
 
         it('should return array of Schain IDs running on a node by nodeID', async function () {
-            let schainIDs = await skale.contract('schains_data').getSchainIdsForNode({'nodeID': nodeID});
+            let schainIDs = await (skale as any).contract('schains_data').getSchainIdsForNode({'nodeID': nodeID});
             assert.isArray(schainIDs, 'nodes is array');
             assert.isNumber(parseInt(schainIDs[0], 10), 'it is number');
         });
 
         it('should show list of Schains', async function () {
-            let arrayOfSchain = await skale.contract('schains_data').getSchainListInfo({'account': account});
+            let arrayOfSchain = await (skale as any).contract('schains_data').getSchainListInfo({'account': account});
             assert.isArray(arrayOfSchain, 'no, it is not an array');
             assert.isObject(arrayOfSchain[0], 'no, it`s not an object');
         });
@@ -138,7 +139,7 @@ describe('check SchainData contract methods', function () {
                 privateKey: privateKey,
                 account: account
             };
-            await skale.contractEv('manager').deleteSchain(params);
+            await (skale as any).contract('manager').deleteSchain(params);
         });
 
     });
