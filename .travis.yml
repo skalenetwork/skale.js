@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install
 script:
-- npm run test
+- npm run testTs
 #- istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov
 env:
   global:

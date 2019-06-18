@@ -11,7 +11,7 @@
     "dev": "WEBPACK_ENV=dev webpack",
     "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
     "test": "nyc --reporter=lcov mocha test --exit --timeout 50000",
-    "testTs": "nyc --reporter=lcov mocha -r /usr/local/lib/node_modules/ts-node/register BaseListener.spec.ts --exit --timeout 50000",
+    "testTs": "nyc --reporter=lcov mocha -r ts-node/register test/**.spec.ts --exit --timeout 55000",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "coverage": "codecov",
     "prepush": "npm run lint && npm test"
