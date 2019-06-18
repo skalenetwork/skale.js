@@ -1,9 +1,7 @@
 require('dotenv').config();
 
 import constants = require('./constantsForTests');
-
 import { assert } from 'chai';
-
 import skale = require('../src/index');
 import Helper = require('../src/common/Helper');
 import Web3 = require('web3');
