@@ -1,24 +1,27 @@
 require('dotenv').config();
 
-const assert = require('chai').assert;
-const skale = require('../src/index');
-const Web3 = require('web3');
+import {assert} from 'chai';
+
+import skale = require('../src/index');
+import Web3 = require('web3');
 
 // data from .env
 const ip = process.env.IP;
 const port = process.env.PORT;
 const account = process.env.ETH_ACCOUNT;
+const abiData = require('../contracts_data/main.json');
+
 describe('get logs for account', function () {
     describe('getPastEvents for web3contract', function () {
         //
         let log;
         after(function () {
-            skale.w3.closeConnection();
+            (skale as any).w3.closeConnection();
         });
 
         beforeEach(async function () {
             let web3SocketProvider = new Web3.providers.WebsocketProvider(`ws://${ip}:${port}`);
-            await skale.initBothProviders(ip, port, web3SocketProvider);
+            await (skale as any).initWithProvider(web3SocketProvider, abiData);
         });
 
         it('should return array of array of objects', async function () {
@@ -41,12 +44,12 @@ describe('get logs for account', function () {
                     //
 
                     arrayOfarray.push(await skale.contract(contractName).web3contract.getPastEvents(eventName, {
-                        filter: {_from: account},
-                        fromBlock: 0,
-                        toBlock: 'latest'
-                    }, function (error, events) {
-                        if (error) console.error(error);
-                    })
+                            filter: {_from: account},
+                            fromBlock: 0,
+                            toBlock: 'latest'
+                        }, function (error, events) {
+                            if (error) console.error(error);
+                        })
                     );
                 }
             }

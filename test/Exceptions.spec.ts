@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import {assert, expect} from 'chai';
+import {expect} from 'chai';
 
 import skale = require('../src/index');
 import Web3 = require('web3');
