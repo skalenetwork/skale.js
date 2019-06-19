@@ -4,7 +4,7 @@
     "module": "commonjs",
     "sourceMap": true,
 //    "noImplicitAny": true,
-    "outDir": "./build/src"
+    "outDir": "./build/"
     //    "strict": true,
     //    "alwaysStrict": true
     //    "allowJs": true,
@@ -16,6 +16,8 @@
     //    "watch": true
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./test/**/*",
+    "./examples/**/*"
   ]
 }
