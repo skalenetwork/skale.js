@@ -1,17 +1,20 @@
 require('dotenv').config({ path: '../../.env' });
 
-const skale = require('../../src/index');
-const Web3 = require('web3');
+import skale = require('../../src/index');
+import Web3 = require('web3');
 // data from .env
 const ip = process.env.IP;
 const port = process.env.PORT;
 const account = process.env.ETH_ACCOUNT;
+const abiData = require('../../contracts_data/main.json');
+
 async function test() {
 
     let web3SocketProvider = new Web3.providers.WebsocketProvider(`ws://${ip}:${port}`);
-    await skale.initBothProviders(ip, port, web3SocketProvider);
+    await (skale as any).initWithProvider(web3SocketProvider, abiData);
 
-    await skale.contract('schains_data').getSchainListInfo({account: account}).then(function (schains) {
+    await (skale as any).contract('schains_data').getSchainListInfo({account: account
+    }).then(function (schains) {
         console.log('SCHAINS: ', schains);
     }).catch((error) => {
         console.log(error);
