@@ -1,56 +1,43 @@
 {
-  "name": "@skalenetwork/skale.js",
-  "version": "0.43.5",
-  "description": "SKALE client tools",
-  "main": "dist/skale.min.js",
-  "private": false,
+  "name": "skale.js",
+  "version": "0.0.9",
+  "description": "Library to interact with SKALE Manager smart contracts",
+  "main": "build/src/index.js",
   "scripts": {
-    "build-patch": "VER=patch ./build.sh",
-    "build-minor": "VER=minor ./build.sh",
-    "build-major": "VER=major ./build.sh",
-    "dev": "WEBPACK_ENV=dev webpack",
-    "lint": "eslint --cache --fix src/** test/**/*.js examples/**",
-    "test": "nyc --reporter=lcov mocha test --exit --timeout 50000",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "coverage": "codecov",
-    "prepush": "npm run lint && npm test"
-  },
-  "dependencies": {
-    "ethereumjs-util": "^6.1.0",
-    "ethereumjs-wallet": "^0.6.3",
-    "web3": "1.0.0-beta.36"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skalenetwork/skale.js.git"
+    "prepare": "tsc",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "ts-node src/index.ts",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'"
   },
   "author": "SKALE Labs",
-  "contributors": [
-    "Alex Danko <alex.danko@skalelabs.com>",
-    "Dmitry Tkachuk <dmitry@skalelabs.com>"
-  ],
-  "license": "LGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/skalenetwork/skale.js/issues"
+  "license": "AGPL-3.0",
+  "keywords": [],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
-  "homepage": "https://github.com/skalenetwork/skale.js#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
+    "@nomiclabs/buidler": "^1.4.8",
+    "@types/chai": "^4.2.14",
+    "@types/chai-almost": "^1.0.1",
+    "@types/chai-as-promised": "^7.1.3",
+    "@types/minimist": "^1.2.0",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.28",
+    "@types/sinon-chai": "^3.2.5",
+    "bignumber.js": "^9.0.0",
     "chai": "^4.2.0",
-    "codecov": "^3.3.0",
-    "dotenv": "^7.0.0",
-    "eslint": "^5.16.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-markdown": "^1.0.0",
-    "eslint-plugin-jsdoc": "^4.8.3",
-    "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^6.1.4",
-    "nyc": "^14.1.1",
-    "semver": "^5.6.0",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1"
+    "chai-almost": "^1.0.1",
+    "chai-as-promised": "^7.1.1",
+    "husky": "^5.0.9",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "web3": "^1.3.4"
   }
 }
