@@ -17,29 +17,28 @@
  */
 
 /**
- * @file index.ts
+ * @file BaseContract.ts
  * @copyright SKALE Labs 2021-Present
  */
 
-import Web3 from 'web3';
+import { BaseContract } from "../BaseContract";
 
-import { BaseContract } from "./BaseContract";
-import { SchainsInternal } from "./contracts/schainsInternal";
-
-export interface ContractsStringMap { [key: string]: any; }
-
-export default class Skale {
-    readonly web3: Web3;
-    contracts: ContractsStringMap;
-
-    constructor(web3: Web3, abi: any) {
-        this.web3 = web3;
-        this.contracts = this.initContracts(abi);
+export class SchainsInternal extends BaseContract {
+    async getSchains() {
+        return await this.contract.methods.getSchains().call();
     }
 
-    initContracts(abi: any): ContractsStringMap {
-        return {
-            'schainsInternal': new SchainsInternal(this.web3, abi.schains_internal_abi, abi.schains_internal_address)
-        };
+    async getSchainName(sChainHash: string) {
+        return await this.contract.methods.getSchainName(sChainHash).call();
+    }
+
+    async getSchainsNames(): Promise<string[]> {
+        let schainIds = await this.getSchains();
+        let sChainNames: string[] = [];
+        for (const id of schainIds) {
+            let name = await this.contract.methods.getSchainName(id).call();
+            sChainNames.push(name);
+        }
+        return sChainNames;
     }
 }

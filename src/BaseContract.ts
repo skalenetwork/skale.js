@@ -17,29 +17,16 @@
  */
 
 /**
- * @file index.ts
+ * @file BaseContract.ts
  * @copyright SKALE Labs 2021-Present
  */
 
 import Web3 from 'web3';
+import { Contract } from 'web3-eth-contract';
 
-import { BaseContract } from "./BaseContract";
-import { SchainsInternal } from "./contracts/schainsInternal";
-
-export interface ContractsStringMap { [key: string]: any; }
-
-export default class Skale {
-    readonly web3: Web3;
-    contracts: ContractsStringMap;
-
-    constructor(web3: Web3, abi: any) {
-        this.web3 = web3;
-        this.contracts = this.initContracts(abi);
-    }
-
-    initContracts(abi: any): ContractsStringMap {
-        return {
-            'schainsInternal': new SchainsInternal(this.web3, abi.schains_internal_abi, abi.schains_internal_address)
-        };
+export abstract class BaseContract {
+    contract: Contract;
+    constructor(web3: Web3, abi: any, address: string) {
+        this.contract = new web3.eth.Contract(abi, address);
     }
 }
